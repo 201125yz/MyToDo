@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MyToDo">
+    <Style x:Key="TaskBarStyle" TargetType="Border">
+        <Style.Triggers>
+            <!-- 鼠标悬停效果 -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#DDDDDD" ShadowDepth="5" BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!-- 根据 Status 改变背景颜色 -->
+            <DataTrigger Binding="{Binding Status}" Value="0"><!--表示待办未完成-->
+                <Setter Property="Background" Value="#1E90FF"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Status}" Value="1"><!--表示待办完成-->
+                <Setter Property="Background" Value="#DBA92B"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>
